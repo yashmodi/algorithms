@@ -1,0 +1,8 @@
+*.[oa] # no .o or .a files
+*~     # ignore files that end with ~ 
+*.out  # ignore .out files
+*dSYM/
+*.mex*
+*.bak
+*.jpg
+*.out
