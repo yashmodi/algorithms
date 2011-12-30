@@ -37,8 +37,29 @@ void insertionSort(int *array, size_t n)
     return;
 }
 
-// 
+// Bubble Sort
 void bubbleSort(int *array, size_t n)
+{
+    unsigned int i, j;
+    int temp;
+
+    for(i = 0; i < n-1; i++)
+    {
+	for(j = 0; j < n - i; j++)
+	{
+	    if(array[j] > array[j+1])
+	    {
+		temp = array[j];
+		array[j] = array[j+1];
+		array[j+1] = temp;
+	    }
+	}
+    }
+    return;
+}
+
+// Selection Sort
+void selectionSort(int *array, size_t n)
 {
     unsigned int i, j;
     int temp;
@@ -78,7 +99,7 @@ void swap(void *a, void *b, size_t size)
     memcpy(a, b, size);
 }
 
-void bubbleSortGeneric(void *array, size_t num, size_t size, int (*comp)(const void *, const void *))
+void selectionSortGeneric(void *array, size_t num, size_t size, int (*comp)(const void *, const void *))
 {
     unsigned int i, j;
     void *iIterator, *jIterator, *temp;
@@ -107,7 +128,7 @@ void bubbleSortGeneric(void *array, size_t num, size_t size, int (*comp)(const v
 
 int main()
 {
-    int array[] = { 8, 2, 4, 9, 3, 6 };
+    int array[] = { 8, 2, 4, 4, -1, 4, 9, 3, 6, 1000, -200 };
     size_t n = sizeof(array)/sizeof(array[0]);
     unsigned int i;
 
@@ -119,8 +140,9 @@ int main()
     printf("\n");
 
     //insertionSort(array, n);
-    //bubbleSort(array, n);
-    bubbleSortGeneric(array, n, sizeof(int), comp);
+    //selectionSort(array, n);
+    //selectionSortGeneric(array, n, sizeof(int), comp);
+    bubbleSort(array, n);
 
     printf("Sorted Array:");
     for(i = 0; i < n; i++)
