@@ -16,12 +16,12 @@
 // Theta(n^2)
 // - moderately fast for small n
 // - not fast at all for large n
-void insertionSort(int *array, size_t n)
+static void insertionSort(int *array, size_t n)
 {
     int key;
     // note, i can become -1, if the 1st element needs to be interchanged. 
-    int i,j;
-
+    int i;
+    unsigned int j;
     
     for(j = 1; j < n; j++)
     {
@@ -38,7 +38,7 @@ void insertionSort(int *array, size_t n)
 }
 
 // Bubble Sort
-void bubbleSort(int *array, size_t n)
+static void bubbleSort(int *array, size_t n)
 {
     unsigned int i, j;
     int temp;
@@ -59,7 +59,7 @@ void bubbleSort(int *array, size_t n)
 }
 
 // Selection Sort
-void selectionSort(int *array, size_t n)
+static void selectionSort(int *array, size_t n)
 {
     unsigned int i, j;
     int temp;
@@ -80,7 +80,7 @@ void selectionSort(int *array, size_t n)
 }
 
 // int compare function
-int comp(const void *a, const void *b)
+static int comp(const void *a, const void *b)
 {
     int diff = *(int *)a - *(int *)b;
     if(diff > 0)
@@ -94,12 +94,12 @@ int comp(const void *a, const void *b)
     return 0;
 }
 
-void swap(void *a, void *b, size_t size)
+static void swap(void *a, const void *b, size_t size)
 {
     memcpy(a, b, size);
 }
 
-void selectionSortGeneric(void *array, size_t num, size_t size, int (*comp)(const void *, const void *))
+static void selectionSortGeneric(void *array, size_t num, size_t size, int (*comp)(const void *, const void *))
 {
     unsigned int i, j;
     void *iIterator, *jIterator, *temp;
