@@ -38,6 +38,9 @@ static void insertionSort(int *array, size_t n)
 }
 
 // Bubble Sort
+//
+// After the first iteration of the outer for loop, 
+// largest element is placed at the end of the array
 static void bubbleSort(int *array, size_t n)
 {
     unsigned int i, j;
@@ -59,6 +62,9 @@ static void bubbleSort(int *array, size_t n)
 }
 
 // Selection Sort
+//
+// After the first iteration of the outer for loop,
+// smallest element will be placed at the first position
 static void selectionSort(int *array, size_t n)
 {
     unsigned int i, j;
